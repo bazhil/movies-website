@@ -15,11 +15,14 @@ Including another URLconf
 """
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from .settings import base
+from apps.movies.urls import urlpatterns as movies_urls
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include(movies_urls))
 ]
 
 if base.DEBUG:
