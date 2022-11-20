@@ -1,6 +1,22 @@
 pipeline{
     agent any
     stages {
+        stage('Install Python3'){
+            steps{
+                sh'''
+                sudo apt install python3
+                '''
+            }
+        }
+
+        stage('Install Pip'){
+            steps{
+                sh'''
+                sudo apt install pip3
+                '''
+            }
+        }
+
         stage('Setup Python Virtual ENV'){
             steps  {
                 sh '''
