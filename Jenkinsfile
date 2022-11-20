@@ -1,20 +1,10 @@
 pipeline{
     agent any
     stages {
-        stage('Install Python3'){
+        stage('Just echo'){
             steps{
-                sh'''
-                sudo su jenkins;
-                sudo apt update; sudo apt upgrade;
-                sudo apt install python3
-                '''
-            }
-        }
-
-        stage('Install Pip'){
-            steps{
-                sh'''
-                sudo apt install pip3
+                sh '''
+                   echo 'Hello Jenkins!'
                 '''
             }
         }
@@ -22,61 +12,24 @@ pipeline{
         stage('Setup Python Virtual ENV'){
             steps  {
                 sh '''
-                if [ -d "env" ]
-                then
-                    echo "Python virtual environment exists."
-                else
-                    python3 -m venv env
-                fi
-
-                source env/bin/activate
-
-                pip3 install -r requirements.txt
-
-                if [ -d "logs" ]
-                then
-                    echo "Log folder exists."
-                else
-                    mkdir logs
-                    touch logs/error.log logs/access.log
-                fi
+                chmod +x envsetup.sh
+                ./envsetup.sh
                 '''
             }
         }
         stage('Setup Gunicorn Setup'){
             steps {
                 sh '''
-                source env/bin/activate
-
-                cd /var/lib/jenkins/workspace/movies-website/
-
-                python3 manage.py makemigrations
-                python3 manage.py migrate
-                python3 manage.py collectstatic -- no-input
-
-                echo "Migrations done"
-
-                cd /var/lib/jenkins/workspace/movies-website
-
-                sudo cp -rf gunicorn.socket /etc/systemd/system/
-                sudo cp -rf gunicorn.service /etc/systemd/system/
-
-                echo "$USER"
-                echo "$PWD"
-
-                sudo systemctl daemon-reload
-                sudo systemctl start gunicorn
-
-                echo "Gunicorn has started."
-
-                sudo systemctl enable gunicorn
-
-                echo "Gunicorn has been enabled."
-
-                sudo systemctl restart gunicorn
-
-
-                sudo systemctl status gunicorn
+                chmod +x gunicorn.sh
+                ./gunicorn.sh
+                '''
+            }
+        }
+        stage('setup NGINX'){
+            steps {
+                sh '''
+                chmod +x nginx.sh
+                ./nginx.sh
                 '''
             }
         }
