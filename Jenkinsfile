@@ -4,6 +4,7 @@ pipeline{
         stage('Install Python3'){
             steps{
                 sh'''
+                sudo apt update; sudo apt upgrade;
                 sudo apt install python3
                 '''
             }
