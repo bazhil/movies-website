@@ -11,3 +11,9 @@ class MovieView(View):
 
         return render(request, 'movies.html', {'movie_list': movie_list})
 
+
+class MovieDetailView(View):
+    """Описание фильма"""
+    def get(self, request, pk):
+        movie = Movie.objects.get(id=pk)
+        return render(request, 'movie_detail.html', {'movie': movie})
