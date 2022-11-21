@@ -8,5 +8,12 @@ pipeline{
                 '''
             }
         }
+        stage('Run pytests'){
+            steps{
+                sh '''
+                   pytest
+                '''
+            }
+        }
     }
 }

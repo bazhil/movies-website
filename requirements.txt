@@ -2,3 +2,5 @@ Django
 django-environ
 Pillow
 python-decouple
+pytest-django
+pytest-factoryboy
