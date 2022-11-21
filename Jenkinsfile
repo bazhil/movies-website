@@ -8,12 +8,5 @@ pipeline{
                 '''
             }
         }
-        stage('Install pip'){
-            steps{
-                sh '''
-                   sudo apt install pip3
-                '''
-            }
-        }
     }
 }
