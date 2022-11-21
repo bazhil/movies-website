@@ -3,15 +3,15 @@ pipeline{
     stages {
         stage('Plug Jenkins'){
             steps{
-                sh '''
-                   echo 'Hello Jenkins!'
+                echo '''
+                   Hello Jenkins!
                 '''
             }
         }
-        stage('Run pytests'){
+        stage('Install pip'){
             steps{
                 sh '''
-                   pytest
+                   sudo apt install pip3
                 '''
             }
         }
