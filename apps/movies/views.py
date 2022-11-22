@@ -1,19 +1,21 @@
 from django.shortcuts import render
-from django.views import View
+from django.views.generic import ListView, DetailView
 
 from .models import Movie
 
 
-class MovieView(View):
+# TODO: разобраться, почему не работает без template!
+class MovieView(ListView):
     """List of movies"""
-    def get(self, request):
-        movie_list = Movie.objects.all()
+    model = Movie
+    queryset = Movie.objects.filter(draft=False)
+    template_name = 'movie_list.html'
 
-        return render(request, 'movies.html', {'movie_list': movie_list})
 
-
-class MovieDetailView(View):
+class MovieDetailView(DetailView):
     """Описание фильма"""
-    def get(self, request, pk):
-        movie = Movie.objects.get(id=pk)
-        return render(request, 'movie_detail.html', {'movie': movie})
+
+    model = Movie
+    slug_field = 'url'
+    template_name = 'movie_detail.html'
+
