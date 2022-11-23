@@ -6,11 +6,8 @@ After=network.target
 [Service]
 User=root
 Group=www-data
-WorkingDirectory=/var/lib/jenkins/workspace/movies-website/
-ExecStart=/var/lib/jenkins/workspace/movies-website/env/bin/gunicorn --workers 3 --log-level debug --error-logfile /var/lib/jenkins/workspace/movies-website/error.log --bind unix:/run/gunicorn.sock app.wsgi:application
+WorkingDirectory=/var/lib/jenkins/workspace/movies-website-ci-cd/
+ExecStart=/var/lib/jenkins/workspace/movies-website-ci-cd/env/bin/gunicorn --workers 3 --log-level debug --error-logfile /var/lib/jenkins/workspace/movies-website-ci-cd/error.log --bind unix:/run/gunicorn.sock app.wsgi:application
 
 [Install]
 WantedBy=multi-user.target
-
-
-[Install]
