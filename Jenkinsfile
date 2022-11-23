@@ -3,6 +3,7 @@ pipeline{
     stages {
         stage('Install Python3') {
             steps {
+                sh 'su -'
                 sh 'apt-get install python3'
                 sh 'apt-get install python3-venv'
             }
