@@ -4,6 +4,7 @@ pipeline{
         stage('build') {
             steps {
                 sh 'python3 --version'
+                sh 'ls -l'
             }
         }
         stage('Setup Python Virtual ENV'){
