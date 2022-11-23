@@ -1,12 +1,12 @@
 pipeline{
     agent any
     stages {
-        stage('Plug Jenkins'){
-            steps{
-                echo '''
-                   Hello Jenkins!
-                '''
-            }
+        stage('Setup Python Virtual ENV')
+        {
+            sh '''
+            chmod +x envsetup.sh
+            ./envsetup
+            '''
         }
     }
 }
