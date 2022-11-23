@@ -5,6 +5,8 @@ pipeline{
             steps {
                 sh 'sudo -i apt-get --assume-yes install python3'
                 sh 'sudo -i apt-get --assume-yes install python3-venv'
+                sh 'sudo -i apt-get --assume-yes install python3-pip'
+
             }
         }
         stage('Setup Python Virtual ENV'){
