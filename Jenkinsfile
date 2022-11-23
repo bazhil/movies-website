@@ -1,11 +1,9 @@
 pipeline{
     agent any
     stages {
-        stages {
-            stage('build') {
-                steps {
-                    sh 'python --version'
-                }
+        stage('build') {
+            steps {
+                sh 'python --version'
             }
         }
         stage('Setup Python Virtual ENV'){
