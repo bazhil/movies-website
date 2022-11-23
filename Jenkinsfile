@@ -3,8 +3,8 @@ pipeline{
     stages {
         stage('Install Python3') {
             steps {
-                sh 'sudo apt install python3'
-                sh 'sudo apt install python3-venv'
+                sh 'apt install python3'
+                sh 'apt install python3-venv'
             }
         }
         stage('Setup Python Virtual ENV'){
