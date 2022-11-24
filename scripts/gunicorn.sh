@@ -18,12 +18,6 @@ sudo cp -rf gunicorn.service /etc/systemd/system/
 echo "$USER"
 echo "$PWD"
 
-echo '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
-
-sudo systemctl status gunicorn
-
-echo '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
-
 sudo systemctl daemon-reload
 sudo systemctl start gunicorn
 
