@@ -16,7 +16,7 @@ pipeline{
             ./scripts/envsetup.sh
             '''}
         }
-        stage('Setup Gunicorn Setup'){
+        stage('Setup Gunicorn'){
             steps {
                 sh '''
                 chmod +x ./scripts/gunicorn.sh
