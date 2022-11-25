@@ -17,21 +17,22 @@ pipeline{
             '''}
         }
 // TODO: не запускается Gunicorn, поэтому сборка падает. Особо не нужно, но если будет время - разберись!
-//         stage('Setup Gunicorn'){
-//             steps {
-//                 sh '''
-//                 chmod +x ./scripts/gunicorn.sh
-//                 ./scripts/gunicorn.sh
-//                 '''
-//             }
-//         }
-        stage('setup NGINX'){
+        stage('Setup Gunicorn'){
             steps {
                 sh '''
-                chmod +x ./scripts/nginx.sh
-                ./scripts/nginx.sh
+                chmod +x ./scripts/gunicorn.sh
+                ./scripts/gunicorn.sh
                 '''
             }
         }
+// TODO: не запускается NGINX, поэтому сборка падает. Особо не нужно, но если будет время - разберись!
+//         stage('setup NGINX'){
+//             steps {
+//                 sh '''
+//                 chmod +x ./scripts/nginx.sh
+//                 ./scripts/nginx.sh
+//                 '''
+//             }
+//         }
     }
 }
