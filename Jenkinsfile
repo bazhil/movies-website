@@ -36,7 +36,8 @@ pipeline{
 //         }
 		stage('Run pytest'){
     		steps{
-        		sh 'pytest'
+    			sh 'pip install pytest'
+        		sh 'pytest tests/movies/test_models.py'
     		}
 		}
     }
