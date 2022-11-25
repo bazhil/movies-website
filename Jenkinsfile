@@ -35,7 +35,7 @@ pipeline{
 //             }
 //         }
 		stage('Run pytest'){
-    		withPythonEnv('python3') {
+    		steps{
         		sh 'pytest'
     		}
 		}
