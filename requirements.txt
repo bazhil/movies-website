@@ -4,3 +4,5 @@ Pillow
 python-decouple
 pytest-django
 pytest-factoryboy
+gunicorn
+nginx
