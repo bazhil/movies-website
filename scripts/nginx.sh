@@ -1,6 +1,12 @@
 
 #!/bin/bash
 
+echo 'Install NGINX'
+
+sudo apt install nginx
+
+echo 'NGINX installed'
+
 sudo cp -rf app.conf /etc/nginx/sites-available/app
 chmod 710 /var/lib/jenkins/workspace/movies-website
 
