@@ -2,6 +2,8 @@ Django
 django-environ
 Pillow
 python-decouple
+Faker
+pytest
 pytest-django
 pytest-factoryboy
 gunicorn
