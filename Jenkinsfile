@@ -36,7 +36,7 @@ pipeline{
 //         }
 		stage('Run pytest'){
     		steps{
-        		sh 'python3 pytest tests/movies/test_models.py'
+        		sh 'python3 -m pytest tests/movies/test_models.py'
     		}
 		}
     }
