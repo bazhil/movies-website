@@ -17,14 +17,14 @@ pipeline{
             '''}
         }
 // TODO: не запускается Gunicorn, поэтому сборка падает. Особо не нужно, но если будет время - разберись!
-        stage('Setup Gunicorn'){
-            steps {
-                sh '''
-                chmod +x ./scripts/gunicorn.sh
-                ./scripts/gunicorn.sh
-                '''
-            }
-        }
+//        stage('Setup Gunicorn'){
+//            steps {
+//                sh '''
+//                chmod +x ./scripts/gunicorn.sh
+//                ./scripts/gunicorn.sh
+//                '''
+//            }
+//        }
 // TODO: не запускается NGINX, поэтому сборка падает. Особо не нужно, но если будет время - разберись!
 //         stage('setup NGINX'){
 //             steps {
@@ -34,5 +34,10 @@ pipeline{
 //                 '''
 //             }
 //         }
+		stage('Run pytest'){
+			steps{
+				sh 'pytest'
+			}
+		}
     }
 }
