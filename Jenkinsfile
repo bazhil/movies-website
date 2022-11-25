@@ -37,6 +37,8 @@ pipeline{
 		stage('Run pytest'){
     		steps{
         		sh 'python3 -m pytest tests/movies/test_models.py'
+        		//TODO: настроить тесты, падает при попытке создать связь ManyToMany!
+        		//sh 'python3 manage.py test tests.movies'
     		}
 		}
     }
