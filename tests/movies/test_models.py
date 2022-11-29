@@ -1,9 +1,6 @@
-import pytest
-
 from apps.movies.models import Movie
 from conftest import base_movie, base_actor, base_category, base_genre, base_rating, base_reviews, \
     base_movies_shorts, base_rating_star
-from tests.factories import MovieFactory
 
 
 # Tests for Movie model
@@ -17,6 +14,9 @@ def test_base_movie_setattr():
 def test_movie_class():
     movie = Movie()
     assert movie.title == movie.__str__()
+
+def test_type_movie_title():
+    assert type(base_movie.__str__()) == str
 
 
 # Tests for Actor model

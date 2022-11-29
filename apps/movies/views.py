@@ -4,7 +4,6 @@ from django.views.generic import ListView, DetailView
 from .models import Movie
 
 
-# TODO: разобраться, почему не работает без template!
 class MovieView(ListView):
     """List of movies"""
     model = Movie
