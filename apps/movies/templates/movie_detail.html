@@ -97,8 +97,8 @@
         <h3 class="shop-sing editContent" style="outline: none; cursor: inherit;">
             О фильме {{ movie.title }}</h3>
         <p>
-            {% for image in movie.movieshorts_set.all %}
-                <img src="{{ image.image.url }}" class="img-fluid" alt="{{ image.description }}">
+            {% for image in movie.movieshots_set.all %}
+                <img src="{{ image.image.url }}" class="img-movie-shots" alt="{{ image.description }}">
             {% endfor %}
         </p>
         <p class="editContent" style="outline: none; cursor: inherit;"> {{ movie.description }} </p>
