@@ -20,7 +20,28 @@ class MovieAdmin(admin.ModelAdmin):
     inlines = [ReviewsInline]
     save_on_top = True
     save_as = True
-
+    list_editable = ('draft', )
+    fieldsets = (
+        ('Title', {
+            'fields': (('title', 'tagline'),)
+        }),
+        ('About', {
+            'fields': (('description', 'poster'),)
+        }),
+        ('Dates', {
+            'fields': (('year', 'world_premiere', 'country'),)
+        }),
+        ('Actors', {
+            'classes': ('collapse',),
+            'fields': (('actors', 'directors', 'genres', 'category'),)
+        }),
+        ('Fees', {
+            'fields': (('budget', 'fees_in_usa', 'fees_in_world'),)
+        }),
+        ('Options', {
+            'fields': (('url', 'draft'),)
+        }),
+    )
 
 @admin.register(Reviews)
 class ReviewsAdmin(admin.ModelAdmin):
