@@ -8,3 +8,4 @@ pytest-django
 pytest-factoryboy
 gunicorn
 nginx
+django-ckeditor
