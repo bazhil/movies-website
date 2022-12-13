@@ -32,3 +32,13 @@ class AddReview(View):
             form.movie = movie
             form.save()
         return redirect(movie.get_absolute_url())
+
+
+
+def last_movies(request):
+    last_movies = Movie.objects.all().order_by('-created_on')[:5]
+    context = {'last_movies': last_movies}
+
+    print(f'!!! last_movies = {last_movies}')
+
+    return render(request, 'sidebar.html', context)

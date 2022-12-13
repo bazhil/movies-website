@@ -9,7 +9,7 @@ def get_categories():
 
 # TODO: не обнаруживается данный путь - на интерфейсе ошибка - полечить!
 #  - внутри метода фильмы получаются, но видимо, не попадают на форму
-@register.inclusion_tag('movies-website/apps/movies/tags/last_movies.html')
+@register.inclusion_tag('apps/movies/tags/last_movies.html')
 def get_last_movies(count=5):
     movies = Movie.objects.order_by('id')[:count]
 
