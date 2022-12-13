@@ -12,3 +12,4 @@ def get_categories():
 def get_last_movies():
     movies = Movie.objects.order_by('id')[:5]
     return {'last_movies': movies}
+
