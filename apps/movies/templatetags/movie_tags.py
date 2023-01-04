@@ -7,11 +7,18 @@ register = template.Library()
 def get_categories():
     return Category.objects.all()
 
-# TODO: не обнаруживается данный путь - на интерфейсе ошибка - полечить!
-#  - внутри метода фильмы получаются, но видимо, не попадают на форму
-@register.inclusion_tag('apps/movies/tags/last_movies.html')
+# TODO: так более-менее работает
+@register.simple_tag()
 def get_last_movies(count=5):
     movies = Movie.objects.order_by('id')[:count]
 
-    return {'last_movies': movies}
+    return movies
+
+# TODO: не обнаруживается данный путь, видимо из-за нестандартной структуры проекта
+#  - внутри метода фильмы получаются, не попадают на форму, тк она не найдена
+# @register.inclusion_tag('apps/movies/tags/last_movies.html')
+# def get_last_movies(count=5):
+#     movies = Movie.objects.order_by('id')[:count]
+#
+#     return movies
 
