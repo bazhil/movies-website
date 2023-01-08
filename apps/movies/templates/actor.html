@@ -1,4 +1,4 @@
-{% extends 'movies/base.html' %}
+{% extends 'include/movie_head.html' %}
 {% load static %}
 {% block title %} {{ actor.name }} {% endblock title %}
 {% block container %}
@@ -32,7 +32,7 @@
                     </li>
                     <li><span><b>Актер:</b>
                         {% for movie in actor.film_actor.all %}
-                           <a href="{% url 'actor_detail' director.name %}">{{ movie.title }}</a>
+                            {{ movie.title }}
                         {% endfor %}
                     </span>
                     </li>
