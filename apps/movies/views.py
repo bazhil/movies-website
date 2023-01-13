@@ -59,8 +59,6 @@ class FilterMoviesView(GenreYear, ListView):
             Q(genres__in=self.request.GET.getlist("genre"))
         )
 
-        print('!!! queryset = ' + str(queryset))
-
         return queryset
 
 
