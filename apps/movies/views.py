@@ -63,7 +63,7 @@ class FilterMoviesView(GenreYear, ListView):
         return queryset
 
 
-class JsonFilterMovieView(ListView):
+class JsonFilterMoviesView(ListView):
     """Movie filter in json"""
     def get_queryset(self):
         queryset = Movie.objects.filter(
