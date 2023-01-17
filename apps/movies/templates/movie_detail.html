@@ -14,12 +14,10 @@
                 {{ movie.title }}</h3>
             <h5 class="editContent"></h5>
             <ul>
-                <li style="list-style: none"><span><b>Год:</b> {{ movie.year }}</span></li>
-                <li style="list-style: none"><span><b>Страна:</b> {{ movie.country }}</span>
-                </li>
-                <li style="list-style: none"><span><b>Слоган:</b> {{ movie.tagline }}</span>
-                </li>
-                <li style="list-style: none">
+                <li><span><b>Год:</b> {{ movie.year }}</span></li>
+                <li><span><b>Страна:</b> {{ movie.country }}</span></li>
+                <li><span><b>Слоган:</b> {{ movie.tagline }}</span></li>
+                <li>
                     <span><b>Режиссер:</b>
                         {% for director in movie.directors.all %}
                             <a href="{{ director.get_absolute_url }}">
@@ -28,7 +26,7 @@
 <!--                            <a href="{% url 'actor_detail' director.name %}">{{ director.name }}</a>-->
                         {% endfor %}
                     </span></li>
-                <li style="list-style: none">
+                <li>
                     <span><b>Актеры:</b>
                         {% for actor in movie.actors.all %}
                             <a href="{{ actor.get_absolute_url }}">
@@ -37,35 +35,28 @@
 <!--                            <a href="{% url 'actor_detail' actor.name %}">{{ actor.name }}</a>-->
                         {% endfor %}
                     </span></li>
-                <li style="list-style: none">
+                <li>
                     <span><b>Жанр:</b>
                         {% for genre in movie.genres.all %}
                             {{ genre.name }}
                         {% endfor %}
                     </span></li>
-                <li style="list-style: none"><span><b>Премьера в мире:</b> {{ movie.world_premiere }}</span>
-                </li>
-                <li style="list-style: none">
-                    <span><b>Бюджет:</b> ${{ movie.budget }}</span></li>
-                <li style="list-style: none">
-                    <span><b>Сборы в США:</b> ${{ movie.fees_in_usa }}</span></li>
-                <li style="list-style: none"><span><b>Сборы в мире:</b> ${{ movie.fees_in_world }}</span>
-                </li>
-                <li style="list-style: none">
-                    <a href="#"><b>Рейтинг:</b>
-                    <span class="fa fa-star" aria-hidden="true"
-                          style="outline: none; cursor: inherit;"></span>
-                        <span class="fa fa-star" aria-hidden="true"
-                              style="outline: none; cursor: inherit;"></span>
-                        <span class="fa fa-star" aria-hidden="true"
-                              style="outline: none; cursor: inherit;"></span>
-                        <span class="fa fa-star" aria-hidden="true"
-                              style="outline: none; cursor: inherit;"></span>
-                        <span class="fa fa-star" aria-hidden="true"
-                              style="outline: none; cursor: inherit;"></span>
-                        <span class="editContent"
-                              style="outline: none; cursor: inherit;">5.0</span>
-                    </a>
+                <li><span><b>Премьера в мире:</b> {{ movie.world_premiere }}</span></li>
+                <li><span><b>Бюджет:</b> ${{ movie.budget }}</span></li>
+                <li><span><b>Сборы в США:</b> ${{ movie.fees_in_usa }}</span></li>
+                <li><span><b>Сборы в мире:</b> ${{ movie.fees_in_world }}</span></li>
+                <li>
+                    <form action="{% url 'add_rating' %}" method="POST" name="rating">
+                        <b>Рейтинг:</b>
+                        {% csrf_token %}
+                        <input type="hidden" value="{{ movie.id }}" name="movie">
+                        <span class="rating">
+                            {% for k, v in star_form.fields.star.choices %}
+                                <input id="rating{{ v }}" type="radio" name="star" value="{{ v }}">
+                                <label for="rating{{ v }}">{{ k }}</label>
+                            {% endfor %}
+                        </span>
+                    </form>
                 </li>
                 <div class="share-desc">
                     <div class="share">
