@@ -1,10 +1,7 @@
 from django.contrib import admin
 from django.contrib.gis import forms
 from django.utils.safestring import mark_safe
-
 from .models import Category, Genre, Movie, MovieShots, Rating, RatingStar, Reviews, Actor
-
-
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
 
 
@@ -136,7 +133,7 @@ class ActorAdmin(admin.ModelAdmin):
 @admin.register(Genre)
 class GenreAdmin(admin.ModelAdmin):
     """Жанры"""
-    list_display = ("name", "url")
+    list_display = ("name", "movie", "url")
 
 @admin.register(Rating)
 class RatingAdmin(admin.ModelAdmin):
