@@ -46,7 +46,8 @@ DJANGO_APPS = [
 
 THIRD_PARTY_APPS = [
     'ckeditor',
-    'ckeditor_uploader'
+    'ckeditor_uploader',
+    'snowpenguin.django.recaptcha3'
 ]
 
 LOCAL_APPS = [
@@ -217,3 +218,9 @@ CKEDITOR_CONFIGS = {
 
 # GDAL_LIBRARY_PATH = '/opt/homebrew/opt/gdal/lib/libgdal.dylib'
 # GEOS_LIBRARY_PATH = '/opt/homebrew/opt/geos/lib/libgeos_c.dylib'
+
+
+RECAPTCHA_PUBLIC_KEY = "6LeOcR8kAAAAAGU1MAZ8CxKkD88elWfo25Tuhiv9"
+RECAPTCHA_PRIVATE_KEY = "6LeOcR8kAAAAALezyXIUpQecK1AOmMnCHgbZuPlk"
+RECAPTCHA_DEFAULT_ACTION = 'generic'
+RECAPTCHA_SCORE_THRESHOLD = 0.5
