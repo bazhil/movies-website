@@ -42,6 +42,8 @@ DJANGO_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'django.contrib.flatpages',
 ]
 
 THIRD_PARTY_APPS = [
@@ -64,6 +66,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware'
 ]
 
 ROOT_URLCONF = 'movies-website.urls'
@@ -87,8 +90,8 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'movies-website.wsgi.application'
-
+# TODO: вернуть когда-нибудь. Убирал, чтобы убрать ошибку импорта WSGI, которая мешала работать над кодом локально.
+#WSGI_APPLICATION = 'movies-website.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
@@ -224,3 +227,5 @@ RECAPTCHA_PUBLIC_KEY = "6LeOcR8kAAAAAGU1MAZ8CxKkD88elWfo25Tuhiv9"
 RECAPTCHA_PRIVATE_KEY = "6LeOcR8kAAAAALezyXIUpQecK1AOmMnCHgbZuPlk"
 RECAPTCHA_DEFAULT_ACTION = 'generic'
 RECAPTCHA_SCORE_THRESHOLD = 0.5
+
+SITE_ID = 1
