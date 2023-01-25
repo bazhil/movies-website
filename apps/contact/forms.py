@@ -1,0 +1,13 @@
+from django import forms
+from .models import Contact
+from snowpenguin.django.recaptcha3.fields import ReCaptchaField
+
+class ContactForm(forms.ModelForm):
+    """Форма подписки на email"""
+    captcha = ReCaptchaField()
+    class Meta:
+        model = Contact
+        fields = ('emain', 'captcha')
+        widgets = {
+            'email': forms.TextInput(attrs={'class': 'editContent'})
+        }
