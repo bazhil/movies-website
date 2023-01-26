@@ -9,3 +9,4 @@ pytest-factoryboy
 gunicorn
 nginx
 django-ckeditor
+django-modeltranslation
