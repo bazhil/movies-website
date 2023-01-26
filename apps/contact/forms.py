@@ -7,7 +7,7 @@ class ContactForm(forms.ModelForm):
     captcha = ReCaptchaField()
     class Meta:
         model = Contact
-        fields = ('emain', 'captcha')
+        fields = ('email', 'captcha')
         widgets = {
             'email': forms.TextInput(attrs={'class': 'editContent'})
         }

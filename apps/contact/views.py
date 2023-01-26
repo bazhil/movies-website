@@ -1,5 +1,6 @@
 from .models import Contact
 from .forms import ContactForm
+from django.views.generic import CreateView
 
 
 class ContactView(CreateView):

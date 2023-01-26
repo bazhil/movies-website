@@ -15,7 +15,7 @@ class MovieAdminForm(forms.ModelForm):
 
 
 @admin.register(Category)
-class CategoryAdmnin(admin.ModelAdmin):
+class CategoryAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'url')
     list_display_links = ('name', )
 
