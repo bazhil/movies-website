@@ -10,3 +10,4 @@ gunicorn
 nginx
 django-ckeditor
 django-modeltranslation
+gettext
