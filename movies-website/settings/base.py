@@ -50,7 +50,9 @@ DJANGO_APPS = [
 THIRD_PARTY_APPS = [
     'ckeditor',
     'ckeditor_uploader',
-    'snowpenguin.django.recaptcha3'
+    'snowpenguin.django.recaptcha3',
+    'allauth',
+    'allauth.account',
 ]
 
 LOCAL_APPS = [
@@ -106,6 +108,12 @@ DATABASES = {
     }
 }
 
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend'
+)
+
+
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
@@ -137,6 +145,8 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+LOGIN_REDIRECT_URL = '/'
 
 gettext = lambda s: s
 LANGUAGES = (

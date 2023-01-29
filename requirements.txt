@@ -11,3 +11,4 @@ nginx
 django-ckeditor
 django-modeltranslation
 gettext
+django-allauth
