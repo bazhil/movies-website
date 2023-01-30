@@ -53,6 +53,7 @@ THIRD_PARTY_APPS = [
     'snowpenguin.django.recaptcha3',
     'allauth',
     'allauth.account',
+    'allauth.socialaccount'
 ]
 
 LOCAL_APPS = [
