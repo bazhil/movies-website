@@ -79,6 +79,7 @@ class Movie(models.Model):
         return reverse('movie_detail', kwargs={'slug': self.url})
 
     class Meta:
+        ordering = ['-id']
         verbose_name = 'Фильм'
         verbose_name_plural = 'Фильмы'
 
