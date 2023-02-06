@@ -12,3 +12,4 @@ django-ckeditor
 django-modeltranslation
 gettext
 django-allauth
+selenium
