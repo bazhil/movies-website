@@ -13,3 +13,4 @@ django-modeltranslation
 gettext
 django-allauth
 selenium
+undetected_chromedriver
