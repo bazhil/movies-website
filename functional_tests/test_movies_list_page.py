@@ -1,11 +1,14 @@
-from django.contrib.staticfiles.testing import StaticLiveServerTestCase
+from django.contrib.staticfiles.testing import StaticLiveServerTestCase, LiveServerTestCase
 from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+
 from apps.movies.models import Movie
 from django.urls import reverse
 import time
 import undetected_chromedriver as uc
 
-class TestMoviesListPage(StaticLiveServerTestCase):
+class TestMoviesAdmin(StaticLiveServerTestCase):
     def setUp(self):
         # так не работает, тк браузер определяет селением и блокирует
         # https://www.appsloveworld.com/bestanswer/selenium/118/selenium-chromedriver-opening-a-blank-page
@@ -23,13 +26,24 @@ class TestMoviesListPage(StaticLiveServerTestCase):
                 'Войти | Django Movies'
             )
 
-    # def test_no_projects_alert_is_displayed(self):
-    #     # TODO: разобраться с современными способами тестировать на селениум!
-    #     self.browser.get(self.live_server_url)
-    #
-    #     # The user requests the page for the first time
-    #     alert = self.browser.find_element_by_class_name('banner-info')
-    #     self.assertEquals(
-    #         alert.find_element_by_tag_name('p').text,
-    #         'лучший сайт на django 3'
-    #     )
+class LoginFormTest(LiveServerTestCase):
+    def test_login(self):
+        browser = uc.Chrome()
+        browser.get(("%s%s" % (self.live_server_url, 'http://127.0.0.1:8000/ru/accounts/login/')))
+
+        time.sleep(2)
+
+        user_name = browser.find_element(By.ID, 'id_login')
+        user_password = browser.find_element(By.ID, 'id_password')
+        submit = browser.find_element(By.CLASS_NAME, 'primaryAction')
+
+        time.sleep(2)
+
+        user_name.send_keys('admin')
+        user_password.send_keys('123456')
+
+        time.sleep(2)
+
+        submit.send_keys(Keys.RETURN)
+
+        assert 'admin' in browser.page_source
