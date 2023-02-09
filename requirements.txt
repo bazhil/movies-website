@@ -7,10 +7,9 @@ pytest
 pytest-django
 pytest-factoryboy
 gunicorn
-nginx
 django-ckeditor
 django-modeltranslation
-gettext
+python-gettext
 django-allauth
 selenium
 undetected_chromedriver
