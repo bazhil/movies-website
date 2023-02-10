@@ -11,5 +11,6 @@ django-ckeditor
 django-modeltranslation
 python-gettext
 django-allauth
+django-recaptcha
 selenium
 undetected_chromedriver
