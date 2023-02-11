@@ -14,6 +14,7 @@ class Category(models.Model):
         return self.name
 
     class Meta:
+        app_label = 'movies'
         verbose_name = 'Категория'
         verbose_name_plural = 'Категории'
 
@@ -32,6 +33,7 @@ class Actor(models.Model):
         return reverse('actor_detail', kwargs={'slug': self.name})
 
     class Meta:
+        app_label = 'movies'
         verbose_name = 'Актеры и режиссеры'
         verbose_name_plural = 'Актеры и режиссеры'
 
@@ -46,6 +48,7 @@ class Genre(models.Model):
         return self.name
 
     class Meta:
+        app_label = 'movies'
         verbose_name = 'Жанры'
         verbose_name_plural = 'Жанры'
 
@@ -79,6 +82,7 @@ class Movie(models.Model):
         return reverse('movie_detail', kwargs={'slug': self.url})
 
     class Meta:
+        app_label = 'movies'
         ordering = ['-id']
         verbose_name = 'Фильм'
         verbose_name_plural = 'Фильмы'
@@ -95,6 +99,7 @@ class MovieShots(models.Model):
         return self.title
 
     class Meta:
+        app_label = 'movies'
         verbose_name = 'Кадр из фильма'
         verbose_name_plural = 'Кадры из фильма'
 
@@ -107,6 +112,7 @@ class RatingStar(models.Model):
         return str(self.value)
 
     class Meta:
+        app_label = 'movies'
         verbose_name = 'Звезда рейтинга'
         verbose_name_plural = 'Звезды рейтинга'
 
@@ -121,6 +127,7 @@ class Rating(models.Model):
         return f'{self.star} - {self.movie}'
 
     class Meta:
+        app_label = 'movies'
         verbose_name = 'Рейтинг'
         verbose_name_plural = 'Рейтинги'
 
@@ -137,5 +144,6 @@ class Reviews(models.Model):
         return f'{self.name} - {self.movie}'
 
     class Meta:
+        app_label = 'movies'
         verbose_name = 'Отзыв'
         verbose_name_plural = 'Отзывы'
