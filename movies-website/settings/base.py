@@ -247,8 +247,8 @@ CKEDITOR_CONFIGS = {
 }
 
 # TODO: для нормальной работы докер контейнера нужно прописать другой путь? Возможно в requirements.txt нужно прописать иначе?
-GDAL_LIBRARY_PATH = '/opt/homebrew/opt/gdal/lib/libgdal.dylib'
-GEOS_LIBRARY_PATH = '/opt/homebrew/opt/geos/lib/libgeos_c.dylib'
+#GDAL_LIBRARY_PATH = '/opt/homebrew/opt/gdal/lib/libgdal.dylib'
+#GEOS_LIBRARY_PATH = '/opt/homebrew/opt/geos/lib/libgeos_c.dylib'
 
 
 RECAPTCHA_PUBLIC_KEY = "6LeOcR8kAAAAAGU1MAZ8CxKkD88elWfo25Tuhiv9"
