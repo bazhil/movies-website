@@ -9,6 +9,10 @@ https://docs.djangoproject.com/en/3.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
+# TODO: попробуй это
+#  https://stackoverflow.com/questions/72867297/modulenotfounderror-no-module-named-app-on-new-django-installation
+#  https://docs.djangoproject.com/en/4.0/topics/settings/#designating-the-settings
+
 
 import os
 from pathlib import Path
