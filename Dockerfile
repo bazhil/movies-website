@@ -1,12 +1,11 @@
 # syntax=docker/dockerfile:1
-FROM python:3.9
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV PYTHONUNBUFFERED=1
+FROM python:3.8-slim-buster
 
 WORKDIR /movies-website
 COPY requirements.txt requirements.txt
 COPY . .
 
+RUN pip3 install --upgrade pip
 RUN pip3 install -r requirements.txt
 
 RUN apt update

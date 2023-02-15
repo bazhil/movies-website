@@ -1,7 +1,5 @@
-import pytest
 from django.test import TestCase, Client
 from django.urls import reverse
-from apps.movies.models import Movie, MovieShots, Actor, Category, Reviews
 
 
 class TestViews(TestCase):
